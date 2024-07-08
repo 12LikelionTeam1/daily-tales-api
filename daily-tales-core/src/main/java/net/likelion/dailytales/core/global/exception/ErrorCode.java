@@ -1,4 +1,4 @@
-package net.likelion.dailytales.core.global;
+package net.likelion.dailytales.core.global.exception;
 
 public enum ErrorCode {
     // Common
