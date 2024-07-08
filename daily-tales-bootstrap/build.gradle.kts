@@ -43,7 +43,5 @@ jib {
             "-Dspring.profiles.active=$activeProfile"
         )
         ports = listOf("$serverPort:$serverPort")
-        args = listOf("JAR_FILE=${tasks.bootJar.get().archiveFile.get().asFile.name}")
-        entrypoint = listOf("source", ".env")
     }
 }
