@@ -8,10 +8,10 @@ import net.likelion.dailytales.authentication.application.OAuthResource;
 import net.likelion.dailytales.authentication.application.OAuthType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestClient;
-import org.springframework.http.ResponseEntity;
 
 @Component
 @RequiredArgsConstructor

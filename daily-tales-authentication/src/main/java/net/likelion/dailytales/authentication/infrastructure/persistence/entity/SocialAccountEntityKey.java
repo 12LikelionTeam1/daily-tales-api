@@ -1,9 +1,10 @@
 package net.likelion.dailytales.authentication.infrastructure.persistence.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import net.likelion.dailytales.authentication.application.OAuthType;
+
 import java.io.Serializable;
 
 @Getter
