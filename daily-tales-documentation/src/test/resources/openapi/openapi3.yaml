@@ -1,0 +1,52 @@
+openapi: 3.0.1
+info:
+  title: 하루한글 API
+  description: 하루한글 API 명세입니다.
+  version: 0.0.1
+servers:
+- url: https://localhost:8080
+tags: []
+paths:
+  /api/oauth/google:
+    post:
+      tags:
+      - authentication
+      summary: 구글 OAuth 인증 API
+      description: 구글 OAuth 인증 API 입니다.
+      operationId: google-oauth-api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api-oauth-google-418316981'
+            examples:
+              google-oauth-api:
+                value: "{\n  \"access_token\" : \"access_token\"\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api-oauth-google-1389209201'
+              examples:
+                google-oauth-api:
+                  value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
+                    \ : \"refresh_token\"\n}"
+components:
+  schemas:
+    api-oauth-google-418316981:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: 인증 코드
+    api-oauth-google-1389209201:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: 액세스 토큰
+        refresh_token:
+          type: string
+          description: 리프레시 토큰
