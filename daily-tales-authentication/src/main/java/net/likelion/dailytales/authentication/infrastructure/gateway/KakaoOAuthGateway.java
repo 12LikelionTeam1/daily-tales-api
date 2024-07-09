@@ -10,23 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class KakaoOAuthGateway implements OAuthGateway {
-    @Value("${oauth2.client.kakao.client-id}")
-    private String clientId;
-
-    @Value("${oauth2.client.kakao.client-secret}")
-    private String clientSecret;
-
-    @Value("${oauth2.client.kakao.redirect-uri}")
-    private String redirectUri;
-
-    @Value("${oauth2.client.kakao.token-uri}")
-    private String tokenUri;
-
     @Value("${oauth2.client.kakao.resource-uri}")
     private String resourceUri;
 
     @Override
-    public OAuthResource authenticate(String code) {
+    public OAuthResource authenticate(String accessToken) {
         return null;
     }
 
