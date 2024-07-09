@@ -29,7 +29,7 @@ jib {
     val activeProfile = System.getenv("ACTIVE_PROFILE")
     val imageName = System.getenv("IMAGE_NAME")
     from {
-        image = "amazoncorretto:17-alpine3.17-jdk"
+        image = "openjdk:17-alpine"
     }
     to {
         image = "$imageName:$imageTag"
@@ -42,6 +42,6 @@ jib {
             "-Dserver.port=$serverPort",
             "-Dspring.profiles.active=$activeProfile"
         )
-        ports = listOf("$serverPort:$serverPort")
+        ports = listOf(serverPort)
     }
 }
