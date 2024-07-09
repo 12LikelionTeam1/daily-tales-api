@@ -12,4 +12,12 @@ public class ErrorResponse {
     public static ErrorResponse of(ErrorCode errorCode) {
         return new ErrorResponse(errorCode.code(), errorCode.message());
     }
+
+    public String code() {
+        return code;
+    }
+
+    public String message() {
+        return message;
+    }
 }
