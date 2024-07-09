@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .sessionManagement((configurer) -> configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((configurer) -> configurer
                         .requestMatchers("/login").anonymous()
-                        .requestMatchers("/api/oauth/**").anonymous()
+                        .requestMatchers("/api/oauth/*").anonymous()
                         .requestMatchers("/api/refresh").permitAll()
                         .anyRequest().authenticated()
                 )

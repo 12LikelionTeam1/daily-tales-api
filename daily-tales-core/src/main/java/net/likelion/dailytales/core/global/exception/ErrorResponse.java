@@ -13,11 +13,11 @@ public class ErrorResponse {
         return new ErrorResponse(errorCode.code(), errorCode.message());
     }
 
-    public String code() {
+    public String getCode() {
         return code;
     }
 
-    public String message() {
+    public String getMessage() {
         return message;
     }
 }

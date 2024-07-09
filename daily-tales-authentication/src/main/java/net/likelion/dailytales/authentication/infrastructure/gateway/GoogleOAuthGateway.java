@@ -8,13 +8,16 @@ import net.likelion.dailytales.authentication.application.OAuthResource;
 import net.likelion.dailytales.authentication.application.OAuthType;
 import net.likelion.dailytales.core.domain.authentication.exception.AuthenticationFailedException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.servlet.View;
 
 @Component
 @RequiredArgsConstructor
 public class GoogleOAuthGateway implements OAuthGateway {
+    private final View error;
     @Value("${oauth2.client.google.resource-uri}")
     private String resourceUri;
 
@@ -32,10 +35,10 @@ public class GoogleOAuthGateway implements OAuthGateway {
                 .uri(resourceUri)
                 .headers(headers -> headers.setBearerAuth(accessToken))
                 .retrieve()
+                .onStatus(HttpStatusCode::isError, (request, response) -> {
+                    throw new AuthenticationFailedException();
+                })
                 .toEntity(GoogleResourceResponse.class);
-        if (result.getStatusCode().isError() || result.getBody() == null) {
-            throw new AuthenticationFailedException();
-        }
         return result.getBody();
     }
 
