@@ -18,7 +18,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/api-oauth-google-418316981'
+              $ref: '#/components/schemas/로그인 요청'
             examples:
               google-oauth-api:
                 value: "{\n  \"access_token\" : \"access_token\"\n}"
@@ -28,20 +28,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/api-oauth-google-1389209201'
+                $ref: '#/components/schemas/로그인 응답'
               examples:
                 google-oauth-api:
                   value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
                     \ : \"refresh_token\"\n}"
 components:
   schemas:
-    api-oauth-google-418316981:
-      type: object
-      properties:
-        access_token:
-          type: string
-          description: 인증 코드
-    api-oauth-google-1389209201:
+    로그인 응답:
+      title: 로그인 응답
       type: object
       properties:
         access_token:
@@ -50,3 +45,10 @@ components:
         refresh_token:
           type: string
           description: 리프레시 토큰
+    로그인 요청:
+      title: 로그인 요청
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: 인증 코드

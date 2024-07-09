@@ -40,6 +40,8 @@ class GoogleOAuthApiDocumentify : Documentify() {
                 summary("구글 OAuth 인증 API")
                 description("구글 OAuth 인증 API 입니다.")
                 tag("authentication")
+                requestSchema("로그인 요청")
+                responseSchema("로그인 응답")
             }
             requestLine(Method.POST, "/api/oauth/google")
             requestBody {
