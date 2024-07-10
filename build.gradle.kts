@@ -10,6 +10,12 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    compileOnly {
+        extendsFrom(configurations.annotationProcessor.get())
+    }
+}
+
 subprojects {
     group = "net.likelion"
     version = "1.0.0-SNAPSHOT"

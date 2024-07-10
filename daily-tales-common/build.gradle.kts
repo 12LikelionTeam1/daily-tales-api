@@ -7,5 +7,10 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
 
     implementation("com.github.f4b6a3:ulid-creator:5.2.3")
-    implementation("com.querydsl:querydsl-jpa:5.1.0:jakarta")
+
+    implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+    implementation("com.querydsl:querydsl-apt:5.0.0:jakarta")
+    annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
+    annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+    annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 }
