@@ -1,4 +1,4 @@
-package net.likelion.dailytales.user.infrastructure.persistence.entity;
+package net.likelion.dailytales.common.user.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

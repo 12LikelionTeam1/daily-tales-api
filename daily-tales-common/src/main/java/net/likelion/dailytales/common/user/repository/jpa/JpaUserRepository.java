@@ -1,6 +1,6 @@
-package net.likelion.dailytales.user.infrastructure.persistence.repository.jpa;
+package net.likelion.dailytales.common.user.repository.jpa;
 
-import net.likelion.dailytales.user.infrastructure.persistence.entity.UserEntity;
+import net.likelion.dailytales.common.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

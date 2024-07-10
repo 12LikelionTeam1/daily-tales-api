@@ -5,13 +5,12 @@ plugins {
 
 dependencies {
     implementation(project(":daily-tales-core"))
+    implementation(project(":daily-tales-common"))
     implementation(project(":daily-tales-authentication"))
-    implementation(project(":daily-tales-user"))
+    implementation(project(":daily-tales-writing"))
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-
-    implementation("com.github.f4b6a3:ulid-creator:5.2.3")
 }
 
 tasks {

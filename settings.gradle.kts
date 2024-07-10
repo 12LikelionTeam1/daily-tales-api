@@ -5,5 +5,6 @@ rootProject.name = "daily-tales-api"
 include("daily-tales-bootstrap")
 include("daily-tales-authentication")
 include("daily-tales-core")
-include("daily-tales-user")
 include("daily-tales-documentation")
+include("daily-tales-writing")
+include("daily-tales-common")

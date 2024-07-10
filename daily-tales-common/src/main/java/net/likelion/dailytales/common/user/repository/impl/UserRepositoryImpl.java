@@ -1,10 +1,10 @@
-package net.likelion.dailytales.user.infrastructure.persistence.repository.impl;
+package net.likelion.dailytales.common.user.repository.impl;
 
 import lombok.RequiredArgsConstructor;
+import net.likelion.dailytales.common.user.entity.UserEntity;
+import net.likelion.dailytales.common.user.repository.jpa.JpaUserRepository;
 import net.likelion.dailytales.core.domain.user.User;
 import net.likelion.dailytales.core.domain.user.UserRepository;
-import net.likelion.dailytales.user.infrastructure.persistence.entity.UserEntity;
-import net.likelion.dailytales.user.infrastructure.persistence.repository.jpa.JpaUserRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
