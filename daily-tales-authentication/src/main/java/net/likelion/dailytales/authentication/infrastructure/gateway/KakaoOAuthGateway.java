@@ -28,7 +28,7 @@ public class KakaoOAuthGateway implements OAuthGateway {
     }
 
     private KakaoResourceResponse requestResource(String accessToken) {
-        ResponseEntity<KakaoResourceResponse> resource = restClient
+        return restClient
                 .get()
                 .uri(resourceUri)
                 .headers(headers -> headers.setBearerAuth(accessToken))
@@ -36,8 +36,8 @@ public class KakaoOAuthGateway implements OAuthGateway {
                 .onStatus(HttpStatusCode::isError, (request, response) -> {
                     throw new AuthenticationFailedException();
                 })
-                .toEntity(KakaoResourceResponse.class);
-        return resource.getBody();
+                .toEntity(KakaoResourceResponse.class)
+                .getBody();
     }
 
     @JsonNaming(SnakeCaseStrategy.class)

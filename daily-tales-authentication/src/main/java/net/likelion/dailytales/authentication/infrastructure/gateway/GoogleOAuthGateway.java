@@ -29,7 +29,7 @@ public class GoogleOAuthGateway implements OAuthGateway {
     }
 
     private GoogleResourceResponse requestResource(String accessToken) {
-        ResponseEntity<GoogleResourceResponse> result = restClient
+        return restClient
                 .get()
                 .uri(resourceUri)
                 .headers(headers -> headers.setBearerAuth(accessToken))
@@ -37,8 +37,8 @@ public class GoogleOAuthGateway implements OAuthGateway {
                 .onStatus(HttpStatusCode::isError, (request, response) -> {
                     throw new AuthenticationFailedException();
                 })
-                .toEntity(GoogleResourceResponse.class);
-        return result.getBody();
+                .toEntity(GoogleResourceResponse.class)
+                .getBody();
     }
 
     @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
