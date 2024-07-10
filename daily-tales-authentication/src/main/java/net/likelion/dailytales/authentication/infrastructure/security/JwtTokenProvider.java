@@ -1,4 +1,4 @@
-package net.likelion.dailytales.authentication.infrastructure;
+package net.likelion.dailytales.authentication.infrastructure.security;
 
 import io.jsonwebtoken.Jwts;
 import jakarta.annotation.PostConstruct;

@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.likelion.dailytales.authentication.infrastructure.JwtTokenProvider;
 import net.likelion.dailytales.core.domain.authentication.Token;
 import net.likelion.dailytales.core.domain.authentication.TokenType;
 import net.likelion.dailytales.core.domain.authentication.exception.AuthenticationFailedException;

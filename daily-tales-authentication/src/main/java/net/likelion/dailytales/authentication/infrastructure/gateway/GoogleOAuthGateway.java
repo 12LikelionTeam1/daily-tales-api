@@ -17,7 +17,6 @@ import org.springframework.web.servlet.View;
 @Component
 @RequiredArgsConstructor
 public class GoogleOAuthGateway implements OAuthGateway {
-    private final View error;
     @Value("${oauth2.client.google.resource-uri}")
     private String resourceUri;
 
