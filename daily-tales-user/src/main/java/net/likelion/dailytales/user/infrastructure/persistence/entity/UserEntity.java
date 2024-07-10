@@ -17,10 +17,10 @@ public class UserEntity {
     @Column(name = "id")
     private String id;
 
-    @Column(name = "display_id", unique = true)
+    @Column(name = "display_id", unique = true, nullable = false)
     private String displayId;
 
-    @Column(name = "nickname")
+    @Column(name = "nickname", nullable = false)
     private String nickname;
 
     public User toDomain() {
