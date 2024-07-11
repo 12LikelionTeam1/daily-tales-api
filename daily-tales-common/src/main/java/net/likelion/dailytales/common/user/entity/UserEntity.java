@@ -6,13 +6,14 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.likelion.dailytales.common.BaseAuditEntity;
 import net.likelion.dailytales.core.domain.user.User;
 
 @Entity(name = "`user`")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class UserEntity extends BaseAuditEntity {
     @Id
     @Column(name = "id")
     private String id;
