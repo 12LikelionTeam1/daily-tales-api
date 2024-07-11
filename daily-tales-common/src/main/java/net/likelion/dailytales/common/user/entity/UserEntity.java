@@ -24,10 +24,10 @@ public class UserEntity {
     private String nickname;
 
     public User toDomain() {
-        return new User(nickname, displayId);
+        return new User(id, nickname, displayId);
     }
 
-    public static UserEntity of(String id, User user) {
-        return new UserEntity(id, user.displayId(), user.nickname());
+    public static UserEntity of(User user) {
+        return new UserEntity(user.id(), user.displayId(), user.nickname());
     }
 }

@@ -13,8 +13,8 @@ public class UserRepositoryImpl implements UserRepository {
     private final JpaUserRepository jpaUserRepository;
 
     @Override
-    public void save(String id, User user) {
-        jpaUserRepository.save(UserEntity.of(id, user));
+    public void save(User user) {
+        jpaUserRepository.save(UserEntity.of(user));
     }
 
     @Override

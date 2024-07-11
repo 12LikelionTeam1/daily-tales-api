@@ -26,12 +26,13 @@ public class SocialUserCreationSupport {
     public String create(OAuthType type, String socialId) {
         String userId = identifierGenerator.generate();
         SocialAccount account = SocialAccount.of(type, socialId, userId);
-        User user = new User(
+        User newUser = new User(
+                userId,
                 String.format("%s_%s", type.value(), socialId),
                 uniqueDisplayId()
         );
         socialAccountRepository.save(account);
-        userRepository.save(userId, user);
+        userRepository.save(newUser);
         return userId;
     }
 

@@ -2,7 +2,7 @@ package net.likelion.dailytales.core.domain.user;
 
 public interface UserRepository {
 
-    void save(String id, User user);
+    void save(User user);
 
     boolean exists(String id);
 
