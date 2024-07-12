@@ -33,6 +33,32 @@ paths:
                 google-oauth-api:
                   value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
                     \ : \"refresh_token\"\n}"
+  /api/oauth/kakao:
+    post:
+      tags:
+      - authentication
+      summary: 카카오 OAuth 인증 API
+      description: 카카오 OAuth 인증 API 입니다.
+      operationId: kakao-oauth-api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/로그인 요청'
+            examples:
+              kakao-oauth-api:
+                value: "{\n  \"access_token\" : \"access_token\"\n}"
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/로그인 응답'
+              examples:
+                kakao-oauth-api:
+                  value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
+                    \ : \"refresh_token\"\n}"
 components:
   schemas:
     로그인 응답:
