@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class KakaoOAuthController {
     private final OAuthService oAuthService;
 
-    @GetMapping
+    @PostMapping
     public LoginResponse login(@RequestBody LoginRequest request) {
         OAuthResult result = oAuthService.authenticate(requestOf(request.accessToken()));
 
