@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import net.likelion.dailytales.common.BaseAuditEntity;
 import net.likelion.dailytales.core.domain.user.User;
 
-@Entity(name = "`user`")
+@Entity(name = "users")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
