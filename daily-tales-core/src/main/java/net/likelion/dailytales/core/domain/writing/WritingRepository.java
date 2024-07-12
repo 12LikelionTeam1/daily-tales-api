@@ -1,7 +1,5 @@
 package net.likelion.dailytales.core.domain.writing;
 
-import java.util.List;
-
 public interface WritingRepository {
 
     void save(Writing writing);
