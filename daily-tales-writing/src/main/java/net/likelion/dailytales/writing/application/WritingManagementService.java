@@ -23,6 +23,7 @@ public class WritingManagementService {
     private final UserRepository userRepository;
     private final WritingRepository writingRepository;
 
+    @Transactional
     public void registerWriting(PreRegisterWritingDto writing) {
         if (!userRepository.exists(writing.writerId())) {
             throw new UserNotFoundException();
