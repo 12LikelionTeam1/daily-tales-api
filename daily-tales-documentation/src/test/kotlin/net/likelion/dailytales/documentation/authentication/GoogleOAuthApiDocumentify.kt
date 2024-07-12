@@ -35,7 +35,7 @@ class GoogleOAuthApiDocumentify : Documentify() {
     fun googleOAuthApi() {
         `when`(service.authenticate(any())).thenReturn(stub())
 
-        documentation("google-oauth-api") {
+        documentation("구글 로그인 API") {
             information {
                 summary("구글 OAuth 인증 API")
                 description("구글 OAuth 인증 API 입니다.")

@@ -13,14 +13,14 @@ paths:
       - authentication
       summary: 구글 OAuth 인증 API
       description: 구글 OAuth 인증 API 입니다.
-      operationId: google-oauth-api
+      operationId: 구글 로그인 API
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/로그인 요청'
             examples:
-              google-oauth-api:
+              구글 로그인 API:
                 value: "{\n  \"access_token\" : \"access_token\"\n}"
       responses:
         "200":
@@ -30,7 +30,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/로그인 응답'
               examples:
-                google-oauth-api:
+                구글 로그인 API:
                   value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
                     \ : \"refresh_token\"\n}"
   /api/oauth/kakao:
@@ -39,14 +39,14 @@ paths:
       - authentication
       summary: 카카오 OAuth 인증 API
       description: 카카오 OAuth 인증 API 입니다.
-      operationId: kakao-oauth-api
+      operationId: 카카오 로그인 API
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/로그인 요청'
             examples:
-              kakao-oauth-api:
+              카카오 로그인 API:
                 value: "{\n  \"access_token\" : \"access_token\"\n}"
       responses:
         "200":
@@ -56,7 +56,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/로그인 응답'
               examples:
-                kakao-oauth-api:
+                카카오 로그인 API:
                   value: "{\n  \"access_token\" : \"access_token\",\n  \"refresh_token\"\
                     \ : \"refresh_token\"\n}"
 components:

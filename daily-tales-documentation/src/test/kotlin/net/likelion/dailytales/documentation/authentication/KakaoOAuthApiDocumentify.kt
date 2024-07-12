@@ -35,7 +35,7 @@ class KakaoOAuthApiDocumentify : Documentify() {
     fun kakaoOAuthApi() {
         `when`(service.authenticate(any())).thenReturn(stub())
 
-        documentation("kakao-oauth-api") {
+        documentation("카카오 로그인 API") {
             information {
                 summary("카카오 OAuth 인증 API")
                 description("카카오 OAuth 인증 API 입니다.")
