@@ -19,7 +19,7 @@ public class QWritingsCountSupport implements WritingsCountSupport {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Map<Month, Integer> getTotalWritingsPerMonth(String userId, Year year) {
+    public Map<Month, Integer> countTotalWritingsPerMonth(String userId, Year year) {
         return queryFactory
                 .select(
                         writingEntity.createdAt.month(),
@@ -37,7 +37,7 @@ public class QWritingsCountSupport implements WritingsCountSupport {
     }
 
     @Override
-    public Map<Integer, Integer> getTotalWritingsPerDay(String userId, Year year, Month month) {
+    public Map<Integer, Integer> countTotalWritingsPerDay(String userId, Year year, Month month) {
         return queryFactory
                 .select(
                         writingEntity.createdAt.dayOfMonth(),

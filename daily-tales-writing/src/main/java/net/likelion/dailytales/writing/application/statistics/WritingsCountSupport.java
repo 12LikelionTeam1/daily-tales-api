@@ -6,8 +6,8 @@ import java.util.Map;
 
 public interface WritingsCountSupport {
 
-    Map<Month, Integer> getTotalWritingsPerMonth(String userId, Year year);
+    Map<Month, Integer> countTotalWritingsPerMonth(String userId, Year year);
 
-    Map<Integer, Integer> getTotalWritingsPerDay(String userId, Year year, Month month);
+    Map<Integer, Integer> countTotalWritingsPerDay(String userId, Year year, Month month);
 
 }

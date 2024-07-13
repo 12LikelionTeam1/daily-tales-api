@@ -19,7 +19,7 @@ public class WritingStatisticsService {
     }
 
     public TotalWritingsPerMonthDto getTotalWritingsPerMonth(String userId, Year year) {
-        Map<Month, Integer> countingResult = writingsCountSupport.getTotalWritingsPerMonth(userId, year);
+        Map<Month, Integer> countingResult = writingsCountSupport.countTotalWritingsPerMonth(userId, year);
         for (Month month : Month.values()) {
             countingResult.putIfAbsent(month, 0);
         }
@@ -32,7 +32,7 @@ public class WritingStatisticsService {
     }
 
     public TotalWritingsPerDayDto getTotalWritingsPerDay(String userId, Year year, Month month) {
-        Map<Integer, Integer> countingResult = writingsCountSupport.getTotalWritingsPerDay(userId, year, month);
+        Map<Integer, Integer> countingResult = writingsCountSupport.countTotalWritingsPerDay(userId, year, month);
         for (int day = 1; day <= month.length(year.isLeap()); day++) {
             countingResult.putIfAbsent(day, 0);
         }
