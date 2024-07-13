@@ -38,4 +38,8 @@ public class WritingStatisticsService {
         }
         return new TotalWritingsPerDayDto(countingResult.values().stream().toList());
     }
+
+    public Long countPublishedWritings(String userId) {
+        return writingsCountSupport.countPublishedWritings(userId);
+    }
 }

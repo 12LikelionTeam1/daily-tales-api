@@ -10,4 +10,6 @@ public interface WritingsCountSupport {
 
     Map<Integer, Integer> countTotalWritingsPerDay(String userId, Year year, Month month);
 
+    Long countPublishedWritings(String userId);
+
 }

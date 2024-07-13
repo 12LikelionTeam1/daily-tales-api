@@ -2,6 +2,7 @@ package net.likelion.dailytales.writing.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import net.likelion.dailytales.writing.api.dto.response.MainKeywordsResponse;
+import net.likelion.dailytales.writing.api.dto.response.PublishedWritingsResponse;
 import net.likelion.dailytales.writing.api.dto.response.TotalWritingsPerDayResponse;
 import net.likelion.dailytales.writing.api.dto.response.TotalWritingsPerMonthResponse;
 import net.likelion.dailytales.writing.application.statistics.MainKeywordDto;
@@ -59,5 +60,12 @@ public class WritingStatisticsController {
                 .getTotalWritingsPerDay(userId, year, month);
 
         return TotalWritingsPerDayResponse.of(countingResult);
+    }
+
+    @GetMapping("/published-writings")
+    public PublishedWritingsResponse countPublishedWritings(@AuthenticationPrincipal String userId) {
+        Long publishedWritings = writingStatisticsService.countPublishedWritings(userId);
+
+        return PublishedWritingsResponse.of(publishedWritings);
     }
 }

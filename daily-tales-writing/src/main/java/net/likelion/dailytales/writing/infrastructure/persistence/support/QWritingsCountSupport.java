@@ -3,6 +3,7 @@ package net.likelion.dailytales.writing.infrastructure.persistence.support;
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
+import net.likelion.dailytales.core.domain.writing.Visibility;
 import net.likelion.dailytales.writing.application.statistics.WritingsCountSupport;
 import org.springframework.stereotype.Component;
 
@@ -58,6 +59,18 @@ public class QWritingsCountSupport implements WritingsCountSupport {
                                 this::countOf
                         )
                 );
+    }
+
+    @Override
+    public Long countPublishedWritings(String userId) {
+        return queryFactory
+                .select(writingEntity.count())
+                .from(writingEntity)
+                .where(
+                        writingEntity.writerId.eq(userId),
+                        writingEntity.visibility.eq(Visibility.PUBLIC)
+                )
+                .fetchOne();
     }
 
     private Month monthOf(Tuple row) {
