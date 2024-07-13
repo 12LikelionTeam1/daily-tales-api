@@ -2,9 +2,8 @@ package net.likelion.dailytales.writing.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.likelion.dailytales.core.domain.user.User;
 import net.likelion.dailytales.core.domain.user.UserRepository;
-import net.likelion.dailytales.core.global.exception.InvalidDateArgumentException;
+import net.likelion.dailytales.core.global.exception.validation.InvalidDateArgumentException;
 import net.likelion.dailytales.writing.api.dto.request.RegisterWritingRequest;
 import net.likelion.dailytales.writing.api.dto.request.UpdateWritingCommentaryRequest;
 import net.likelion.dailytales.writing.api.dto.request.UpdateWritingVisibilityRequest;
