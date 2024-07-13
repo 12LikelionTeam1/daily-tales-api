@@ -2,7 +2,6 @@ package net.likelion.dailytales.writing.application.statistics;
 
 import java.time.Month;
 import java.time.Year;
-import java.util.List;
 import java.util.Map;
 
 public interface TotalWritingsCountSupport {

@@ -24,7 +24,6 @@ import static net.likelion.dailytales.writing.api.WritingRequestMapper.preRegist
 @RequiredArgsConstructor
 public class WritingManagementController {
     private final WritingManagementService writingManagementService;
-    private final UserRepository userRepository;
 
     @PostMapping
     public void registerWriting(
