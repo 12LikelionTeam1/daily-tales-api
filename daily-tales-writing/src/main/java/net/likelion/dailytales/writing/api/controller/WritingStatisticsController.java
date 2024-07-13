@@ -51,8 +51,8 @@ public class WritingStatisticsController {
     @GetMapping("/total-writings-per-day")
     public TotalWritingsPerDayResponse getTotalWritingsPerDay(
             @AuthenticationPrincipal String userId,
-            @RequestParam(required = false, name = "yearValue") Integer yearValue,
-            @RequestParam(required = false, name = "monthValue") Integer monthValue
+            @RequestParam(required = false, name = "year") Integer yearValue,
+            @RequestParam(required = false, name = "month") Integer monthValue
     ) {
         Year year = yearValue == null ? Year.now() : Year.of(yearValue);
         Month month = monthValue == null ? LocalDate.now().getMonth() : Month.of(monthValue);
