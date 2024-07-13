@@ -32,8 +32,10 @@ public class WritingStatisticsService {
     }
 
     public TotalWritingsPerDayDto getTotalWritingsPerDay(String userId, Year year, Month month) {
-        return new TotalWritingsPerDayDto(
-                totalWritingsCountSupport.getTotalWritingsPerDay(userId, year, month)
-        );
+        Map<Integer, Integer> countingResult = totalWritingsCountSupport.getTotalWritingsPerDay(userId, year, month);
+        for (int day = 1; day <= month.length(year.isLeap()); day++) {
+            countingResult.putIfAbsent(day, 0);
+        }
+        return new TotalWritingsPerDayDto(countingResult.values().stream().toList());
     }
 }
