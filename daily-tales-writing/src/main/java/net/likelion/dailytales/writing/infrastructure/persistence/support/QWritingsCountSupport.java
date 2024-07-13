@@ -3,7 +3,7 @@ package net.likelion.dailytales.writing.infrastructure.persistence.support;
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import net.likelion.dailytales.writing.application.statistics.TotalWritingsCountSupport;
+import net.likelion.dailytales.writing.application.statistics.WritingsCountSupport;
 import org.springframework.stereotype.Component;
 
 import java.time.Month;
@@ -15,7 +15,7 @@ import static net.likelion.dailytales.writing.infrastructure.persistence.entity.
 
 @Component
 @RequiredArgsConstructor
-public class QTotalWritingsCountSupport implements TotalWritingsCountSupport {
+public class QWritingsCountSupport implements WritingsCountSupport {
     private final JPAQueryFactory queryFactory;
 
     @Override

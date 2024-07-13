@@ -12,14 +12,14 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class WritingStatisticsService {
     private final KeywordStatisticsSupport keywordStatisticsSupport;
-    private final TotalWritingsCountSupport totalWritingsCountSupport;
+    private final WritingsCountSupport writingsCountSupport;
 
     public List<MainKeywordDto> getMainKeywords(String userId, Integer size) {
         return keywordStatisticsSupport.getMainKeywords(userId, size);
     }
 
     public TotalWritingsPerMonthDto getTotalWritingsPerMonth(String userId, Year year) {
-        Map<Month, Integer> countingResult = totalWritingsCountSupport.getTotalWritingsPerMonth(userId, year);
+        Map<Month, Integer> countingResult = writingsCountSupport.getTotalWritingsPerMonth(userId, year);
         for (Month month : Month.values()) {
             countingResult.putIfAbsent(month, 0);
         }
@@ -32,7 +32,7 @@ public class WritingStatisticsService {
     }
 
     public TotalWritingsPerDayDto getTotalWritingsPerDay(String userId, Year year, Month month) {
-        Map<Integer, Integer> countingResult = totalWritingsCountSupport.getTotalWritingsPerDay(userId, year, month);
+        Map<Integer, Integer> countingResult = writingsCountSupport.getTotalWritingsPerDay(userId, year, month);
         for (int day = 1; day <= month.length(year.isLeap()); day++) {
             countingResult.putIfAbsent(day, 0);
         }
