@@ -2,6 +2,7 @@ package net.likelion.dailytales.writing.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.likelion.dailytales.core.domain.authentication.LoggedInUser;
 import net.likelion.dailytales.core.domain.user.UserRepository;
 import net.likelion.dailytales.core.global.exception.validation.InvalidDateArgumentException;
 import net.likelion.dailytales.writing.api.dto.request.RegisterWritingRequest;
@@ -27,7 +28,7 @@ public class WritingManagementController {
 
     @PostMapping
     public void registerWriting(
-            @AuthenticationPrincipal String userId,
+            @LoggedInUser String userId,
             @RequestBody RegisterWritingRequest request
     ) {
         writingManagementService.registerWriting(preRegisterWriting(userId, request));

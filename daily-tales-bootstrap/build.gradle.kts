@@ -8,6 +8,10 @@ dependencies {
     implementation(project(":daily-tales-common"))
     implementation(project(":daily-tales-authentication"))
     implementation(project(":daily-tales-writing"))
+    implementation(project(":daily-tales-user"))
+
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
 }

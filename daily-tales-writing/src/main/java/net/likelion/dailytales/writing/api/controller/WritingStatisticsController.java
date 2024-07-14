@@ -1,6 +1,7 @@
 package net.likelion.dailytales.writing.api.controller;
 
 import lombok.RequiredArgsConstructor;
+import net.likelion.dailytales.core.domain.authentication.LoggedInUser;
 import net.likelion.dailytales.writing.api.dto.response.MainKeywordsResponse;
 import net.likelion.dailytales.writing.api.dto.response.PublishedWritingsResponse;
 import net.likelion.dailytales.writing.api.dto.response.TotalWritingsPerDayResponse;
@@ -28,7 +29,7 @@ public class WritingStatisticsController {
 
     @GetMapping("/main-keywords")
     public MainKeywordsResponse getMainKeywords(
-            @AuthenticationPrincipal String userId,
+            @LoggedInUser String userId,
             @RequestParam(required = false, name = "size", defaultValue = "3") Integer size
     ) {
         List<MainKeywordDto> result = writingStatisticsService.getMainKeywords(userId, size);
@@ -38,7 +39,7 @@ public class WritingStatisticsController {
 
     @GetMapping("/total-writings-per-month")
     public TotalWritingsPerMonthResponse getTotalWritingsPerMonth(
-            @AuthenticationPrincipal String userId,
+            @LoggedInUser String userId,
             @RequestParam(required = false, name = "year") Integer yearValue
     ) {
         Year year = yearValue == null ? Year.now() : Year.of(yearValue);
@@ -50,7 +51,7 @@ public class WritingStatisticsController {
 
     @GetMapping("/total-writings-per-day")
     public TotalWritingsPerDayResponse getTotalWritingsPerDay(
-            @AuthenticationPrincipal String userId,
+            @LoggedInUser String userId,
             @RequestParam(required = false, name = "year") Integer yearValue,
             @RequestParam(required = false, name = "month") Integer monthValue
     ) {
