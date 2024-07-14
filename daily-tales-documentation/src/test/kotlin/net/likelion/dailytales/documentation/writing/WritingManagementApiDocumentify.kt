@@ -133,7 +133,6 @@ class WritingManagementApiDocumentify : Documentify() {
             responseSchema("글 목록 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {
-                field("writings", "글 목록", emptyList<SimpleWritingResponse>())
                 field("writings[].id", "글 ID", "writing_id")
                 field("writings[].title", "글 제목", "title")
                 field("writings[].visibility", "글 공개 범위", Visibility.PUBLIC)
