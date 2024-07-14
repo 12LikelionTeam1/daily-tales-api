@@ -24,11 +24,19 @@ public class UserEntity extends BaseAuditEntity {
     @Column(name = "nickname", nullable = false)
     private String nickname;
 
+    @Column(name = "profile_image_url", nullable = false)
+    private String profileImageUrl;
+
     public User toDomain() {
-        return new User(id, nickname, displayId);
+        return new User(id, nickname, displayId, profileImageUrl);
     }
 
     public static UserEntity of(User user) {
-        return new UserEntity(user.id(), user.displayId(), user.nickname());
+        return new UserEntity(
+                user.id(),
+                user.displayId(),
+                user.nickname(),
+                user.profileImageUrl()
+        );
     }
 }
