@@ -14,7 +14,7 @@ public class OAuthService {
     private final SocialUserCreationSupport socialUserCreationSupport;
     private final TokenProvider tokenProvider;
 
-    public OAuthResult authenticate(OAuthRequestDto request) {
+    public OAuthResult authenticate(OAuthTokenDto request) {
         OAuthGateway gateway = oAuthGatewayFactory.of(request.type());
         OAuthResource socialUser = gateway.authenticate(request.code());
         String userId = userIdOf(socialUser);
