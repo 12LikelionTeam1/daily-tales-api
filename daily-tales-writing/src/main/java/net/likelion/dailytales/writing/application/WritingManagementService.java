@@ -42,19 +42,15 @@ public class WritingManagementService {
     }
 
     @Transactional
-    public void updateCommentary(String id, String commentary) {
-        if (writingRepository.notExists(id)) {
-            throw new WritingNotFoundException();
-        }
-        writingRepository.updateCommentary(id, commentary);
+    public void updateCommentary(String userId, String writingId, String commentary) {
+        validateWriting(userId, writingId);
+        writingRepository.updateCommentary(writingId, commentary);
     }
 
     @Transactional
-    public void updateVisibility(String id, Visibility visibility) {
-        if (writingRepository.notExists(id)) {
-            throw new WritingNotFoundException();
-        }
-        writingRepository.updateVisibility(id, visibility);
+    public void updateVisibility(String userId, String writingId, Visibility visibility) {
+        validateWriting(userId, writingId);
+        writingRepository.updateVisibility(writingId, visibility);
     }
 
     public List<SimpleWritingInfo> getWritingsOfUser(
@@ -63,5 +59,14 @@ public class WritingManagementService {
             LocalDate endDate
     ) {
         return writingSearchSupport.getWritingsOfUser(userId, startDate, endDate);
+    }
+
+    private void validateWriting(String userId, String writingId) {
+        if (writingRepository.notExists(writingId)) {
+            throw new WritingNotFoundException();
+        }
+        if (!userId.equals(writingRepository.findUserIdById(writingId))) {
+            throw new WritingNotFoundException();
+        }
     }
 }

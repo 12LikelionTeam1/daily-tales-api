@@ -4,6 +4,8 @@ public interface WritingRepository {
 
     void save(Writing writing);
 
+    String findUserIdById(String id);
+
     Writing findById(String id);
 
     boolean exists(String id);

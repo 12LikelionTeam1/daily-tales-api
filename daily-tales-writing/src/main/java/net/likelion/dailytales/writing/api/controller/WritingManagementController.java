@@ -36,23 +36,25 @@ public class WritingManagementController {
 
     @PatchMapping("/{id}/commentary")
     public void updateCommentary(
+            @LoggedInUser String userId,
             @RequestBody UpdateWritingCommentaryRequest request,
             @PathVariable("id") String id
     ) {
-        writingManagementService.updateCommentary(id, request.commentary());
+        writingManagementService.updateCommentary(userId, id, request.commentary());
     }
 
     @PatchMapping("/{id}/visibility")
     public void updateVisibility(
+            @LoggedInUser String userId,
             @PathVariable("id") String id,
             @RequestBody UpdateWritingVisibilityRequest request
     ) {
-        writingManagementService.updateVisibility(id, request.visibility());
+        writingManagementService.updateVisibility(userId, id, request.visibility());
     }
 
     @GetMapping
     public SimpleWritingsResponse getWritings(
-            @AuthenticationPrincipal String userId,
+            @LoggedInUser String userId,
             @RequestParam(name = "start-date", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
             @RequestParam(name = "end-date", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate
     ) {
