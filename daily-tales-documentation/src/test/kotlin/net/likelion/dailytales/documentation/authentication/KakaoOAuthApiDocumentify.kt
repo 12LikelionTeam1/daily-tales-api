@@ -40,13 +40,13 @@ class KakaoOAuthApiDocumentify : Documentify() {
                 summary("카카오 OAuth 인증 API")
                 description("카카오 OAuth 인증 API 입니다.")
                 tag("인증")
-                requestSchema("로그인 요청")
-                responseSchema("로그인 응답")
             }
+            requestSchema("로그인 요청")
             requestLine(Method.POST, "/api/oauth/kakao")
             requestBody {
                 field("access_token", "인증 코드", "access_token")
             }
+            responseSchema("로그인 응답")
             responseLine(HttpStatus.OK)
             responseBody {
                 field("access_token", "액세스 토큰", stub().accessToken.value())

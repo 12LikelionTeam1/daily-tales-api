@@ -47,9 +47,8 @@ class WritingManagementApiDocumentify : Documentify() {
                 summary("글 등록 API")
                 description("글 등록 API 입니다.")
                 tag("글")
-                requestSchema("글 작성 요청")
-                responseSchema("글 작성 응답")
             }
+            requestSchema("글 작성 요청")
             requestLine(Method.POST, "/api/me/writings")
             requestBody {
                 field("title", "글의 제목", "title")
@@ -57,6 +56,7 @@ class WritingManagementApiDocumentify : Documentify() {
                 field("content", "글의 내용", "content")
                 field("commentary", "감상문", "commentary")
             }
+            responseSchema("글 작성 응답")
             responseLine(HttpStatus.OK)
         }
     }
@@ -75,8 +75,8 @@ class WritingManagementApiDocumentify : Documentify() {
                     """.trimIndent()
                 )
                 tag("글")
-                requestSchema("글 공유 범위 수정 요청")
             }
+            requestSchema("글 공유 범위 수정 요청")
             requestLine(Method.PATCH, "/api/me/writings/{id}/visibility") {
                 pathVariable("id", "글 ID", "writing_id")
             }
@@ -100,8 +100,8 @@ class WritingManagementApiDocumentify : Documentify() {
                     """.trimIndent()
                 )
                 tag("글")
-                requestSchema("감상문 수정 요청")
             }
+            requestSchema("감상문 수정 요청")
             requestLine(Method.PATCH, "/api/me/writings/{id}/commentary") {
                 pathVariable("id", "글 ID", "writing_id")
             }
@@ -125,12 +125,12 @@ class WritingManagementApiDocumentify : Documentify() {
                     """.trimIndent()
                 )
                 tag("글")
-                responseSchema("글 목록 조회 응답")
             }
             requestLine(Method.GET, "/api/me/writings") {
                 queryParameter("start-date", "시작 날짜 (기본값 : 오늘)", LocalDate.now().toString())
                 queryParameter("end-date", "종료 (기본값 : 오늘", LocalDate.now().toString())
             }
+            responseSchema("글 목록 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {
                 field("writings", "글 목록", emptyList<SimpleWritingResponse>())
