@@ -12,6 +12,7 @@ dependencies {
     testImplementation(project(":daily-tales-core"))
     testImplementation(project(":daily-tales-bootstrap"))
     testImplementation(project(":daily-tales-authentication"))
+    testImplementation(project(":daily-tales-writing"))
     testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     testImplementation("org.jetbrains.kotlin:kotlin-reflect")
 
@@ -22,7 +23,7 @@ dependencies {
     testImplementation("com.epages:restdocs-api-spec-mockmvc:0.18.2")
     testImplementation("com.epages:restdocs-api-spec-restassured:0.18.2")
     testImplementation("io.rest-assured:spring-mock-mvc:5.4.0")
-    testImplementation(kotlin("test"))
+
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
