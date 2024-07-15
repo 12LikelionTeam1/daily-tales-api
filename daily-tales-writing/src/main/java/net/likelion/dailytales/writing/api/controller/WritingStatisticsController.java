@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/me/writing/statistics")
+@RequestMapping("/api/me/writings/statistics")
 public class WritingStatisticsController {
     private final WritingStatisticsService writingStatisticsService;
 
