@@ -5,7 +5,6 @@ import io.restassured.http.Method
 import net.likelion.dailytales.authentication.infrastructure.security.LoggedInUserArgumentResolver
 import net.likelion.dailytales.core.domain.writing.Visibility
 import net.likelion.dailytales.writing.api.controller.WritingManagementController
-import net.likelion.dailytales.writing.api.dto.response.SimpleWritingResponse
 import net.likelion.dailytales.writing.application.SimpleWritingInfo
 import net.likelion.dailytales.writing.application.WritingManagementService
 import org.junit.jupiter.api.BeforeEach
@@ -46,7 +45,7 @@ class WritingManagementApiDocumentify : Documentify() {
             information {
                 summary("글 등록 API")
                 description("글 등록 API 입니다.")
-                tag("글")
+                tag("내 글 관리")
             }
             requestSchema("글 작성 요청")
             requestLine(Method.POST, "/api/me/writings")
@@ -74,7 +73,7 @@ class WritingManagementApiDocumentify : Documentify() {
                     공유 범위 : ${Visibility.entries.joinToString(", ") { it.name }}
                     """.trimIndent()
                 )
-                tag("글")
+                tag("내 글 관리")
             }
             requestSchema("글 공유 범위 수정 요청")
             requestLine(Method.PATCH, "/api/me/writings/{id}/visibility") {
@@ -99,7 +98,7 @@ class WritingManagementApiDocumentify : Documentify() {
                     글 감상문 수정 API 입니다.
                     """.trimIndent()
                 )
-                tag("글")
+                tag("내 글 관리")
             }
             requestSchema("감상문 수정 요청")
             requestLine(Method.PATCH, "/api/me/writings/{id}/commentary") {
@@ -124,7 +123,7 @@ class WritingManagementApiDocumentify : Documentify() {
                     글 목록 조회 API 입니다.
                     """.trimIndent()
                 )
-                tag("글")
+                tag("내 글 관리")
             }
             requestLine(Method.GET, "/api/me/writings") {
                 queryParameter("start-date", "시작 날짜 (기본값 : 오늘)", LocalDate.now().toString())
