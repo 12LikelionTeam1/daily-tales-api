@@ -3,7 +3,6 @@ package net.likelion.dailytales.writing.api.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.likelion.dailytales.core.domain.authentication.LoggedInUser;
-import net.likelion.dailytales.core.global.exception.validation.InvalidDateArgumentException;
 import net.likelion.dailytales.writing.api.dto.request.RegisterWritingRequest;
 import net.likelion.dailytales.writing.api.dto.request.UpdateWritingCommentaryRequest;
 import net.likelion.dailytales.writing.api.dto.request.UpdateWritingVisibilityRequest;
@@ -12,9 +11,11 @@ import net.likelion.dailytales.writing.application.SimpleWritingDto;
 import net.likelion.dailytales.writing.application.WritingManagementService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
+import static net.likelion.dailytales.writing.api.DateValidationUtil.validateDate;
 import static net.likelion.dailytales.writing.api.WritingRequestMapper.preRegisterWriting;
 
 @Slf4j
@@ -66,11 +67,5 @@ public class WritingManagementController {
         validateDate(startDate, endDate);
         List<SimpleWritingDto> writings = writingManagementService.getWritingsOfUser(userId, startDate, endDate);
         return GetMyWritingsResponse.from(writings);
-    }
-
-    private void validateDate(LocalDate startDate, LocalDate endDate) {
-        if (startDate.isAfter(endDate)) {
-            throw new InvalidDateArgumentException();
-        }
     }
 }

@@ -3,7 +3,6 @@ package net.likelion.dailytales.writing.api.dto.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import net.likelion.dailytales.writing.api.dto.SimpleWritingResponse;
 import net.likelion.dailytales.writing.application.SimpleWritingDto;
 
 import java.util.List;

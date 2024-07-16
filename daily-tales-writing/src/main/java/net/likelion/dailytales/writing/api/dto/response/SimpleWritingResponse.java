@@ -1,4 +1,4 @@
-package net.likelion.dailytales.writing.api.dto;
+package net.likelion.dailytales.writing.api.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

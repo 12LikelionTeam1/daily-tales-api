@@ -1,6 +1,5 @@
 package net.likelion.dailytales.writing.api.dto.response;
 
-import net.likelion.dailytales.writing.api.dto.SimpleWritingResponse;
 import net.likelion.dailytales.writing.application.SimpleWritingDto;
 
 import java.util.List;

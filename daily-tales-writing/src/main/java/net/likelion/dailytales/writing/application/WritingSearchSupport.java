@@ -11,4 +11,9 @@ public interface WritingSearchSupport {
             LocalDate endDate
     );
 
+    PagedSimpleWritingDto getWritingsExcludingUser(
+            String userId,
+            int page,
+            int size
+    );
 }
