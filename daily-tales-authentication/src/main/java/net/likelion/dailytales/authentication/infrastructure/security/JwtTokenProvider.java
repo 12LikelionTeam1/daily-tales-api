@@ -31,6 +31,8 @@ public class JwtTokenProvider implements TokenProvider {
         signKey = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
     }
 
+
+
     @Override
     public Token generateToken(TokenType type, String userId) {
         if (type == TokenType.ACCESS) {

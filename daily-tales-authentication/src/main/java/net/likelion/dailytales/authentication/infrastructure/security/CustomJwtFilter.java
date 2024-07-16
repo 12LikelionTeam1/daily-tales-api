@@ -59,6 +59,7 @@ public class CustomJwtFilter extends OncePerRequestFilter {
         } catch (ExpiredJwtException exception) {
             writeErrorResponse(response, HttpStatus.UNAUTHORIZED, ErrorCode.AUTHENTICATION_EXPIRED);
         } catch (JwtException exception) {
+            exception.printStackTrace();
             writeErrorResponse(response, HttpStatus.UNAUTHORIZED, ErrorCode.AUTHENTICATION_FAILED);
         } catch (APIException exception) {
             writeErrorResponse(response, HttpStatus.BAD_REQUEST, exception.errorCode());
