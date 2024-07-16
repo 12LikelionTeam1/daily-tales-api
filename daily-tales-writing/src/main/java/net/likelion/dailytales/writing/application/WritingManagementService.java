@@ -69,4 +69,15 @@ public class WritingManagementService {
             throw new WritingNotFoundException();
         }
     }
+
+    public Writing getWriting(String visitorId, String writingId) {
+        if (writingRepository.notExists(writingId)) {
+            throw new WritingNotFoundException();
+        }
+        Writing writing = writingRepository.findById(writingId);
+        if (writing.visibility() == Visibility.PRIVATE && !visitorId.equals(writing.writer().id())) {
+            throw new WritingNotFoundException();
+        }
+        return writing;
+    }
 }

@@ -32,22 +32,22 @@ public class WritingManagementController {
         writingManagementService.registerWriting(preRegisterWriting(userId, request));
     }
 
-    @PatchMapping("/{id}/commentary")
+    @PatchMapping("/{writing-id}/commentary")
     public void updateCommentary(
             @LoggedInUser String userId,
             @RequestBody UpdateWritingCommentaryRequest request,
-            @PathVariable("id") String id
+            @PathVariable("writing-id") String writingId
     ) {
-        writingManagementService.updateCommentary(userId, id, request.commentary());
+        writingManagementService.updateCommentary(userId, writingId, request.commentary());
     }
 
-    @PatchMapping("/{id}/visibility")
+    @PatchMapping("/{writing-id}/visibility")
     public void updateVisibility(
             @LoggedInUser String userId,
-            @PathVariable("id") String id,
+            @PathVariable("writing-id") String writingId,
             @RequestBody UpdateWritingVisibilityRequest request
     ) {
-        writingManagementService.updateVisibility(userId, id, request.visibility());
+        writingManagementService.updateVisibility(userId, writingId, request.visibility());
     }
 
     @GetMapping
