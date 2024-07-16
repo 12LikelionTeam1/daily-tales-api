@@ -1,7 +1,7 @@
 package net.likelion.dailytales.authentication.application.service;
 
 import lombok.RequiredArgsConstructor;
-import net.likelion.dailytales.authentication.application.TokenProvider;
+import net.likelion.dailytales.core.domain.authentication.TokenProvider;
 import net.likelion.dailytales.core.domain.authentication.Token;
 import net.likelion.dailytales.core.domain.authentication.TokenType;
 import net.likelion.dailytales.core.domain.authentication.exception.AuthenticationFailedException;

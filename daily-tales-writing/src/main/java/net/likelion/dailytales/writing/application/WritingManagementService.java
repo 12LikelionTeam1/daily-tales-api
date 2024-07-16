@@ -22,6 +22,7 @@ public class WritingManagementService {
     private final WritingSearchSupport writingSearchSupport;
     private final UserRepository userRepository;
     private final WritingRepository writingRepository;
+    private final KeywordExtractorGateway keywordExtractorGateway;
 
     @Transactional
     public void registerWriting(PreRegisterWritingDto writing) {
@@ -29,12 +30,13 @@ public class WritingManagementService {
             throw new UserNotFoundException();
         }
         User writer = userRepository.findById(writing.writerId());
+        List<String> keywords = keywordExtractorGateway.extractKeywords(writing.content());
         Writing newWriting = Writing.newWriting(
                 identifierGenerator.generate(),
                 writer,
                 writing.title(),
                 Visibility.PRIVATE,
-                writing.keywords(),
+                keywords,
                 writing.content(),
                 writing.commentary()
         );

@@ -12,7 +12,6 @@ public class WritingRequestMapper {
         return new PreRegisterWritingDto(
                 writerId,
                 request.title(),
-                request.keywords(),
                 request.content(),
                 WritingCommentary.of(request.commentary())
         );
