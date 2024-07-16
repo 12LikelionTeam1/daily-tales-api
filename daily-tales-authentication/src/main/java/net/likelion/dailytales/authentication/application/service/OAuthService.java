@@ -3,6 +3,7 @@ package net.likelion.dailytales.authentication.application.service;
 import lombok.RequiredArgsConstructor;
 import net.likelion.dailytales.authentication.application.*;
 import net.likelion.dailytales.core.domain.authentication.Token;
+import net.likelion.dailytales.core.domain.authentication.TokenProvider;
 import net.likelion.dailytales.core.domain.authentication.TokenType;
 import org.springframework.stereotype.Service;
 

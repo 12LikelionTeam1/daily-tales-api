@@ -2,7 +2,7 @@ package net.likelion.dailytales.authentication.infrastructure.security;
 
 import io.jsonwebtoken.Jwts;
 import jakarta.annotation.PostConstruct;
-import net.likelion.dailytales.authentication.application.TokenProvider;
+import net.likelion.dailytales.core.domain.authentication.TokenProvider;
 import net.likelion.dailytales.core.domain.authentication.Token;
 import net.likelion.dailytales.core.domain.authentication.TokenType;
 import org.springframework.beans.factory.annotation.Value;
