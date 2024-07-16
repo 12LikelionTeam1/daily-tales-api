@@ -4,7 +4,9 @@ public interface WritingRepository {
 
     void save(Writing writing);
 
-    String findUserIdById(String id);
+    String getWriterIdById(String id);
+
+    Visibility getVisibilityById(String id);
 
     Writing findById(String id);
 

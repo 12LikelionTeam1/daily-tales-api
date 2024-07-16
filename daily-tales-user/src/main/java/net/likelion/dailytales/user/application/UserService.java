@@ -13,6 +13,14 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
+    public User getUserById(String userId) {
+        if (!userRepository.exists(userId)) {
+            throw new UserNotFoundException();
+        }
+        return userRepository.findById(userId);
+    }
+
+    @Transactional
     public void updateDisplayId(String userId, String displayId) {
         User user = userRepository.findById(userId);
         if (user == null) {

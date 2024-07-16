@@ -34,10 +34,18 @@ public class WritingRepositoryImpl implements WritingRepository {
     }
 
     @Override
-    public String findUserIdById(String id) {
+    public String getWriterIdById(String id) {
         return jpaWritingRepository
                 .findById(id)
                 .map(WritingEntity::getWriterId)
+                .orElse(null);
+    }
+
+    @Override
+    public Visibility getVisibilityById(String id) {
+        return jpaWritingRepository
+                .findById(id)
+                .map(WritingEntity::getVisibility)
                 .orElse(null);
     }
 

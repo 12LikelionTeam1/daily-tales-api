@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import net.likelion.dailytales.common.BaseAuditEntity;
 import net.likelion.dailytales.core.domain.writing.Visibility;
 import net.likelion.dailytales.core.domain.writing.Writing;
-import net.likelion.dailytales.writing.application.SimpleWritingInfo;
+import net.likelion.dailytales.writing.application.SimpleWritingDto;
 
 @Entity(name = "writing")
 @Getter
@@ -31,10 +31,11 @@ public class WritingEntity extends BaseAuditEntity {
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
 
-    public SimpleWritingInfo toDto() {
-        return new SimpleWritingInfo(
+    public SimpleWritingDto toDto() {
+        return new SimpleWritingDto(
                 this.id,
                 this.title,
+                null,
                 this.visibility,
                 this.getCreatedAt()
         );

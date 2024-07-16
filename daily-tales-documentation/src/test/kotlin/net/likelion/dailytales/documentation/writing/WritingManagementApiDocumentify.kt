@@ -5,7 +5,7 @@ import io.restassured.http.Method
 import net.likelion.dailytales.authentication.infrastructure.security.LoggedInUserArgumentResolver
 import net.likelion.dailytales.core.domain.writing.Visibility
 import net.likelion.dailytales.writing.api.controller.WritingManagementController
-import net.likelion.dailytales.writing.application.SimpleWritingInfo
+import net.likelion.dailytales.writing.application.SimpleWritingDto
 import net.likelion.dailytales.writing.application.WritingManagementService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -113,7 +113,7 @@ class WritingManagementApiDocumentify : Documentify() {
 
     @Test
     fun getWritingsApi() {
-        `when`(service.getWritingsOfUser(any(), any(), any())).thenReturn(testWritings())
+        `when`(service.getWritingsOfUser(any(), any(), any())).thenReturn(stub())
 
         documentation("글 목록 조회 API") {
             information {
@@ -140,24 +140,27 @@ class WritingManagementApiDocumentify : Documentify() {
         }
     }
 
-    private fun testWritings() : List<SimpleWritingInfo> {
+    private fun stub() : List<SimpleWritingDto> {
         val now = LocalDateTime.now()
         return listOf(
-            SimpleWritingInfo(
+            SimpleWritingDto(
                 "writing_id1",
                 "title1",
+                null,
                 Visibility.PUBLIC,
                 now
             ),
-            SimpleWritingInfo(
+            SimpleWritingDto(
                 "writing_id2",
                 "title2",
+                null,
                 Visibility.PUBLIC,
                 now
             ),
-            SimpleWritingInfo(
+            SimpleWritingDto(
                 "writing_id3",
                 "title3",
+                null,
                 Visibility.PRIVATE,
                 now
             )

@@ -1,4 +1,4 @@
-package net.likelion.dailytales.writing.infrastructure.persistence.support;
+package net.likelion.dailytales.writing.infrastructure.persistence.projection;
 
 import com.querydsl.core.annotations.QueryProjection;
 

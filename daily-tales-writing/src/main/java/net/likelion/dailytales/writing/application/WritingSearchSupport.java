@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface WritingSearchSupport {
 
-    List<SimpleWritingInfo> getWritingsOfUser(
+    List<SimpleWritingDto> getWritingsOfUser(
             String userId,
             LocalDate startDate,
             LocalDate endDate

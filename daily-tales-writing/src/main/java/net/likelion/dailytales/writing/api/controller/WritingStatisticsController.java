@@ -38,7 +38,7 @@ public class WritingStatisticsController {
     }
 
     @GetMapping("/total-writings-per-month")
-    public TotalWritingsPerMonthResponse getTotalWritingsPerMonth(
+    public TotalWritingsPerMonthResponse countTotalWritingsPerMonth(
             @LoggedInUser String userId,
             @RequestParam(required = false, name = "year") Integer yearValue
     ) {
@@ -50,7 +50,7 @@ public class WritingStatisticsController {
     }
 
     @GetMapping("/total-writings-per-day")
-    public TotalWritingsPerDayResponse getTotalWritingsPerDay(
+    public TotalWritingsPerDayResponse countTotalWritingsPerDay(
             @LoggedInUser String userId,
             @RequestParam(required = false, name = "year") Integer yearValue,
             @RequestParam(required = false, name = "month") Integer monthValue

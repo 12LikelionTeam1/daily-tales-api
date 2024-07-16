@@ -3,7 +3,7 @@ package net.likelion.dailytales.writing.infrastructure.persistence.support;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import net.likelion.dailytales.writing.application.SimpleWritingInfo;
+import net.likelion.dailytales.writing.application.SimpleWritingDto;
 import net.likelion.dailytales.writing.application.WritingSearchSupport;
 import net.likelion.dailytales.writing.infrastructure.persistence.entity.WritingEntity;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,7 @@ public class QWritingSearchSupport implements WritingSearchSupport {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public List<SimpleWritingInfo> getWritingsOfUser(String userId, LocalDate startDate, LocalDate endDate) {
+    public List<SimpleWritingDto> getWritingsOfUser(String userId, LocalDate startDate, LocalDate endDate) {
          return queryFactory
                 .selectFrom(writingEntity)
                 .where(

@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import net.likelion.dailytales.writing.application.statistics.KeywordStatisticsSupport;
 import net.likelion.dailytales.writing.application.statistics.MainKeywordDto;
+import net.likelion.dailytales.writing.infrastructure.persistence.projection.QMainKeywordProjection;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -53,7 +53,7 @@ public class WritingManagementService {
         writingRepository.updateVisibility(writingId, visibility);
     }
 
-    public List<SimpleWritingInfo> getWritingsOfUser(
+    public List<SimpleWritingDto> getWritingsOfUser(
             String userId,
             LocalDate startDate,
             LocalDate endDate
@@ -65,7 +65,7 @@ public class WritingManagementService {
         if (writingRepository.notExists(writingId)) {
             throw new WritingNotFoundException();
         }
-        if (!writerId.equals(writingRepository.findUserIdById(writingId))) {
+        if (!writerId.equals(writingRepository.getWriterIdById(writingId))) {
             throw new WritingNotFoundException();
         }
     }
