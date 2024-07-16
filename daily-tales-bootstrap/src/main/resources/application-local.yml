@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/DailyTales?autoReconnect=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: knulinkmoa1234
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     hikari:
       auto-commit: false
       pool-name: connection-pool
@@ -31,23 +31,23 @@ spring:
 oauth2:
   client:
     kakao:
-      client-id: fb10cb79e23f0f45911f00508c6eda10
-      client-secret: n2H5ABrYgmPDcFuyfImQfYGjPZCCor3q
-      redirect-uri: https://kapi.kakao.com/v2/user/me
+      client-id: ${KAKAO_CLIENT_ID}
+      client-secret: ${KAKAO_CLIENT_SECRET}
+      redirect-uri: ${KAKAO_REDIRECT_URI}
       token-uri: https://kauth.kakao.com/oauth/token
       resource-uri: https://kapi.kakao.com/v2/user/me
     google:
-      client-id: 663501545611-rn0u68o9qpu1hpntquq2gvcbq53h7ght.apps.googleusercontent.com
-      client-secret: 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
-      redirect-uri: https://www.googleapis.com/oauth2/v2/userinfo
+      client-id: ${GOOGLE_CLIENT_ID}
+      client-secret: ${GOOGLE_CLIENT_SECRET}
+      redirect-uri: ${GOOGLE_REDIRECT_URI}
       token-uri: https://oauth2.googleapis.com/token
       resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
 
 token:
-  secret: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMTM2MDk1MywiaWF0IjoxNzExMzYwOTUzfQ.DZzz_c2IrVkUDrhK1rRLiHRZTCMG7fav1Nz7tZZ4RU0
+  secret: ${TOKEN_SECRET}
   expiration:
-    access: 86400
-    refresh: 86400
+    access: ${TOKEN_EXPIRATION_ACCESS}
+    refresh: ${TOKEN_EXPIRATION_REFRESH}
 
 app:
   headers:
