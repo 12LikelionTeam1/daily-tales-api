@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/DailyTales?autoReconnect=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: knulinkmoa1234
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
     hikari:
       auto-commit: false
       pool-name: connection-pool
@@ -36,10 +36,10 @@ oauth2:
       resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
 
 token:
-  secret: 91F922CA017C4C9A0879AA850EC9AA75DA54D17C487CBDDA584EF19E69BF35AA
+  secret: ${TOKEN_SECRET}
   expiration:
-    access: 86400
-    refresh: 86400
+    access: ${TOKEN_EXPIRATION_ACCESS}
+    refresh: ${TOKEN_EXPIRATION_REFRESH}
 
 app:
   headers:
