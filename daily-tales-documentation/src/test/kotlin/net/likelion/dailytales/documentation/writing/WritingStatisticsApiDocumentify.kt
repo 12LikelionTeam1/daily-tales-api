@@ -53,6 +53,9 @@ class WritingStatisticsApiDocumentify : Documentify() {
             requestLine(Method.GET, "/api/me/writings/statistics/main-keywords") {
                 queryParameter("size", "조회할 메인 키워드 개수", "3")
             }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             responseSchema("메인 키워드 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {
@@ -76,6 +79,9 @@ class WritingStatisticsApiDocumentify : Documentify() {
             requestSchema("월별 글 작성 통계 조회 요청")
             requestLine(Method.GET, "/api/me/writings/statistics/total-writings-per-month") {
                 queryParameter("year", "조회할 연도", "2024")
+            }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
             }
             responseSchema("월별 글 작성 통계 조회 응답")
             responseLine(HttpStatus.OK)
@@ -118,6 +124,9 @@ class WritingStatisticsApiDocumentify : Documentify() {
                 queryParameter("year", "조회할 연도", "2024")
                 queryParameter("month", "조회할 월", "7")
             }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             responseSchema("일별 글 작성 통계 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {
@@ -140,6 +149,9 @@ class WritingStatisticsApiDocumentify : Documentify() {
             }
             requestSchema("작성한 글 수 조회 요청")
             requestLine(Method.GET, "/api/me/writings/statistics/published-writings")
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             responseSchema("작성한 글 수 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {

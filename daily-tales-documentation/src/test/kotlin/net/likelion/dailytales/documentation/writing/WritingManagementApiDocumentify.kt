@@ -49,9 +49,11 @@ class WritingManagementApiDocumentify : Documentify() {
             }
             requestSchema("글 작성 요청")
             requestLine(Method.POST, "/api/me/writings")
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             requestBody {
                 field("title", "글의 제목", "title")
-                field("keywords", "글의 주요 키워드", listOf("keyword1", "keyword2"))
                 field("content", "글의 내용", "content")
                 field("commentary", "감상문", "commentary")
             }
@@ -79,6 +81,9 @@ class WritingManagementApiDocumentify : Documentify() {
             requestLine(Method.PATCH, "/api/me/writings/{id}/visibility") {
                 pathVariable("id", "글 ID", "writing_id")
             }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             requestBody {
                 field("visibility", "글의 공유 범위", Visibility.PUBLIC)
             }
@@ -103,6 +108,9 @@ class WritingManagementApiDocumentify : Documentify() {
             requestSchema("감상문 수정 요청")
             requestLine(Method.PATCH, "/api/me/writings/{id}/commentary") {
                 pathVariable("id", "글 ID", "writing_id")
+            }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
             }
             requestBody {
                 field("commentary", "감상문", "commentary")
@@ -129,13 +137,16 @@ class WritingManagementApiDocumentify : Documentify() {
                 queryParameter("start-date", "시작 날짜 (기본값 : 오늘)", LocalDate.now().toString())
                 queryParameter("end-date", "종료 (기본값 : 오늘", LocalDate.now().toString())
             }
+            requestHeaders {
+                header("Authorization", "액세스 토큰", "access_token")
+            }
             responseSchema("글 목록 조회 응답")
             responseLine(HttpStatus.OK)
             responseBody {
                 field("writings[].id", "글 ID", "writing_id")
                 field("writings[].title", "글 제목", "title")
                 field("writings[].visibility", "글 공개 범위", Visibility.PUBLIC)
-                field("writings[].writtenAt", "글 작성일", LocalDate.now().toString())
+                field("writings[].written_at", "글 작성일", LocalDate.now().toString())
             }
         }
     }
