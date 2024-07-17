@@ -13,6 +13,7 @@ dependencies {
     testImplementation(project(":daily-tales-bootstrap"))
     testImplementation(project(":daily-tales-authentication"))
     testImplementation(project(":daily-tales-writing"))
+    testImplementation(project(":daily-tales-user"))
     testImplementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     testImplementation("org.jetbrains.kotlin:kotlin-reflect")
 
