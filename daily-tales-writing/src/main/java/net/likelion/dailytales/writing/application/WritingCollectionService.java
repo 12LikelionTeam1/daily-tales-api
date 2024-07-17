@@ -35,7 +35,7 @@ public class WritingCollectionService {
         return writingCollectionRepository.findWritingsByUserId(userId);
     }
 
-    public void deleteWriting(String userId, String writingId) {
+    public void removeWriting(String userId, String writingId) {
         if (!userRepository.exists(userId)) {
             throw new UserNotFoundException();
         }

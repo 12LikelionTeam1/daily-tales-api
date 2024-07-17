@@ -10,6 +10,7 @@ public enum ErrorCode {
     // Validation
     START_DATE_AFTER_END_DATE("V0001", "시작일은 종료일 이전이어야 합니다."),
     INVALID_DATE_FORMAT("V0002", "날짜 형식이 올바르지 않습니다."),
+    INVALID_PAGE_ARGUMENT("V0003", "페이지 번호가 올바르지 않습니다."),
 
     // User
     USER_NOT_FOUND("U0001", "사용자를 찾을 수 없습니다."),

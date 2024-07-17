@@ -10,12 +10,9 @@ import net.likelion.dailytales.writing.api.dto.response.WritingResponse;
 import net.likelion.dailytales.writing.application.PagedSimpleWritingDto;
 import net.likelion.dailytales.writing.application.WritingManagementService;
 import net.likelion.dailytales.writing.application.WritingService;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import static net.likelion.dailytales.core.global.PageValidator.validatePageRequest;
 
 @RestController
 @RequestMapping("/api/writings")
@@ -38,12 +35,14 @@ public class WritingController {
     @GetMapping
     public PagedResponse<SimpleWritingResponse> getWritingsOfOtherUser(
             @LoggedInUser String userId,
-            @PageableDefault Pageable pageable
+            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+            @RequestParam(value = "size", required = false, defaultValue = "10") Integer size
     ) {
+        validatePageRequest(page, size);
         PagedSimpleWritingDto writings = writingService.getWritingsExcludingUser(
                 userId,
-                pageable.getPageNumber(),
-                pageable.getPageSize()
+                page,
+                size
         );
         return PagedSimpleWritingResponse.of(writings);
     }

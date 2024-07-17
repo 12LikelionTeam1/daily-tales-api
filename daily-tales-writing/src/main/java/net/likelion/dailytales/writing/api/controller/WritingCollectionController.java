@@ -17,7 +17,7 @@ public class WritingCollectionController {
     private final WritingCollectionService writingCollectionService;
 
     @PostMapping
-    public void saveWriting(
+    public void registerWriting(
             @LoggedInUser String userId,
             @RequestBody RegisterWritingCollectionRequest request
     ){
@@ -32,10 +32,10 @@ public class WritingCollectionController {
     }
 
     @DeleteMapping("/{writing-id}")
-    public void deleteWriting(
+    public void removeWriting(
             @LoggedInUser String userId,
             @PathVariable("writing-id") String writingId
     ) {
-        writingCollectionService.deleteWriting(userId, writingId);
+        writingCollectionService.removeWriting(userId, writingId);
     }
 }
