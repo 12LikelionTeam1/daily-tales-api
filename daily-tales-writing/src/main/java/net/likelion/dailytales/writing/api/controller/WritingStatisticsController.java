@@ -44,7 +44,7 @@ public class WritingStatisticsController {
     ) {
         Year year = yearValue == null ? Year.now() : Year.of(yearValue);
         TotalWritingsPerMonthDto countingResult = writingStatisticsService
-                .getTotalWritingsPerMonth(userId, year);
+                .countTotalWritingsPerMonth(userId, year);
 
         return TotalWritingsPerMonthResponse.of(countingResult);
     }
@@ -58,7 +58,7 @@ public class WritingStatisticsController {
         Year year = yearValue == null ? Year.now() : Year.of(yearValue);
         Month month = monthValue == null ? LocalDate.now().getMonth() : Month.of(monthValue);
         TotalWritingsPerDayDto countingResult = writingStatisticsService
-                .getTotalWritingsPerDay(userId, year, month);
+                .countTotalWritingsPerDay(userId, year, month);
 
         return TotalWritingsPerDayResponse.of(countingResult);
     }

@@ -67,7 +67,7 @@ class WritingStatisticsApiDocumentify : Documentify() {
 
     @Test
     fun getTotalWritingsPerMonthApi() {
-        `when`(writingStatisticsService.getTotalWritingsPerMonth(any(), any()))
+        `when`(writingStatisticsService.countTotalWritingsPerMonth(any(), any()))
             .thenReturn(totalWritingsPerMonthStub())
 
         documentation("월별 글 작성 통계 조회 API") {
@@ -105,7 +105,7 @@ class WritingStatisticsApiDocumentify : Documentify() {
 
     @Test
     fun getTotalWritingsPerDayApi() {
-        `when`(writingStatisticsService.getTotalWritingsPerDay(any(), any(), any()))
+        `when`(writingStatisticsService.countTotalWritingsPerDay(any(), any(), any()))
             .thenReturn(totalWritingsPerDayStub())
 
         documentation("일별 글 작성 통계 조회 API") {

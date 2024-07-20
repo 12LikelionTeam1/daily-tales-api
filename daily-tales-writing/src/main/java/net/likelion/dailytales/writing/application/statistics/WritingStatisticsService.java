@@ -18,7 +18,7 @@ public class WritingStatisticsService {
         return keywordStatisticsSupport.getMainKeywords(userId, size);
     }
 
-    public TotalWritingsPerMonthDto getTotalWritingsPerMonth(String userId, Year year) {
+    public TotalWritingsPerMonthDto countTotalWritingsPerMonth(String userId, Year year) {
         Map<Month, Integer> countingResult = writingsCountSupport.countTotalWritingsPerMonth(userId, year);
         for (Month month : Month.values()) {
             countingResult.putIfAbsent(month, 0);
@@ -31,7 +31,7 @@ public class WritingStatisticsService {
         return new TotalWritingsPerMonthDto(totalWritingsOfYear, countingResult);
     }
 
-    public TotalWritingsPerDayDto getTotalWritingsPerDay(String userId, Year year, Month month) {
+    public TotalWritingsPerDayDto countTotalWritingsPerDay(String userId, Year year, Month month) {
         Map<Integer, Integer> countingResult = writingsCountSupport.countTotalWritingsPerDay(userId, year, month);
         for (int day = 1; day <= month.length(year.isLeap()); day++) {
             countingResult.putIfAbsent(day, 0);
