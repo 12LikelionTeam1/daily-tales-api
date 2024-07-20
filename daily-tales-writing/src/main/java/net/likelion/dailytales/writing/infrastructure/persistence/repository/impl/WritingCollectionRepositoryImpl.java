@@ -58,7 +58,7 @@ public class WritingCollectionRepositoryImpl implements WritingCollectionReposit
                 )
                 .fetch()
                 .stream()
-                .map(WritingProjection::toSimpleWritingIfo)
+                .map(WritingProjection::toDto)
                 .toList();
     }
 

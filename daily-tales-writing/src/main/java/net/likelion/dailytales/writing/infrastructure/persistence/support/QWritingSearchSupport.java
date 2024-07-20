@@ -76,7 +76,7 @@ public class QWritingSearchSupport implements WritingSearchSupport {
                 .limit(size)
                 .fetch()
                 .stream()
-                .map(WritingProjection::toSimpleWritingIfo)
+                .map(WritingProjection::toDto)
                 .toList();
         return new PagedSimpleWritingDto(
                 page,

@@ -18,7 +18,7 @@ public record WritingProjection(
     public WritingProjection {
     }
 
-    public SimpleWritingDto toSimpleWritingIfo() {
+    public SimpleWritingDto toDto() {
         return new SimpleWritingDto(
                 id,
                 title,
