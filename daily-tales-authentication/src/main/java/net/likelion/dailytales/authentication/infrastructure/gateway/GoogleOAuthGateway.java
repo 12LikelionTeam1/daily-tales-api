@@ -1,7 +1,6 @@
 package net.likelion.dailytales.authentication.infrastructure.gateway;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import net.likelion.dailytales.authentication.application.OAuthGateway;
 import net.likelion.dailytales.authentication.application.OAuthResource;
 import net.likelion.dailytales.authentication.application.OAuthType;
