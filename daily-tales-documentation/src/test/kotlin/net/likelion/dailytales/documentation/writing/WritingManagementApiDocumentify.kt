@@ -55,9 +55,9 @@ class WritingManagementApiDocumentify : Documentify() {
             requestBody {
                 field("title", "글의 제목", "title")
                 field("content", "글의 내용", "content")
+                field("keywords", "글의 키워드", listOf("keyword1", "keyword2"))
                 field("commentary", "감상문", "commentary")
             }
-            responseSchema("글 작성 응답")
             responseLine(HttpStatus.OK)
         }
     }
