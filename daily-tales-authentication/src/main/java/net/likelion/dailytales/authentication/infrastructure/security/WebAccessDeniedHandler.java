@@ -33,7 +33,7 @@ public class WebAccessDeniedHandler implements AccessDeniedHandler {
         response.setCharacterEncoding("UTF-8");
         response.setStatus(HttpStatus.BAD_REQUEST.value());
         response.getWriter().write(
-                objectMapper.writeValueAsString(ErrorResponse.of(ErrorCode.NOT_FOUND))
+                objectMapper.writeValueAsString(ErrorResponse.of(ErrorCode.INVALID_REQUEST))
         );
     }
 }
