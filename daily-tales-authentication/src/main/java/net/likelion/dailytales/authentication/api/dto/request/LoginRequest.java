@@ -5,6 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonNaming(SnakeCaseStrategy.class)
 public record LoginRequest(
-        String accessToken
+        String token
 ) {
 }

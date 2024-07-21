@@ -13,4 +13,22 @@ import java.io.Serializable;
 public class SocialAccountEntityKey implements Serializable {
     private OAuthType provider = OAuthType.GOOGLE;
     private String socialId = "";
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SocialAccountEntityKey that = (SocialAccountEntityKey) o;
+
+        if (provider != that.provider) return false;
+        return socialId.equals(that.socialId);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = provider.hashCode();
+        result = 31 * result + socialId.hashCode();
+        return result;
+    }
 }

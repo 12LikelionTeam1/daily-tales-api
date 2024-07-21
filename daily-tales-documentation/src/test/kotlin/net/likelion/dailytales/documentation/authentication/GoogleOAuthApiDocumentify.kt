@@ -44,7 +44,7 @@ class GoogleOAuthApiDocumentify : Documentify() {
             requestSchema("로그인 요청")
             requestLine(Method.POST, "/api/oauth/google")
             requestBody {
-                field("access_token", "인증 코드", "access_token")
+                field("token", "인증 코드", "access_token")
             }
             responseSchema("로그인 응답")
             responseLine(HttpStatus.OK)

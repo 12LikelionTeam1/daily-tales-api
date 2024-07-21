@@ -2,7 +2,7 @@ package net.likelion.dailytales.authentication.application;
 
 public interface  OAuthGateway {
 
-    OAuthResource authenticate(String accessToken);
+    OAuthResource authenticate(String token);
 
     OAuthType getType();
 

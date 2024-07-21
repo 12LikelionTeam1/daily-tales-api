@@ -1,4 +1,4 @@
-package net.likelion.dailytales.common.identification;
+package net.likelion.dailytales.gateway.component;
 
 import com.github.f4b6a3.ulid.UlidCreator;
 import net.likelion.dailytales.core.global.IdentifierGenerator;

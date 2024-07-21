@@ -8,6 +8,7 @@ public enum ErrorCode {
     NOT_FOUND("C0003", "해당 자원을 찾을 수 없습니다."),
 
     // Validation
+    INVALID_REQUEST("V0000", "요청이 올바르지 않습니다."),
     START_DATE_AFTER_END_DATE("V0001", "시작일은 종료일 이전이어야 합니다."),
     INVALID_DATE_FORMAT("V0002", "날짜 형식이 올바르지 않습니다."),
     INVALID_PAGE_ARGUMENT("V0003", "페이지 번호가 올바르지 않습니다."),

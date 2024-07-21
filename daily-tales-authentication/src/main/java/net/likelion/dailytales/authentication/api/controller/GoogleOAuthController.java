@@ -17,7 +17,7 @@ public class GoogleOAuthController {
 
     @PostMapping
     public LoginResponse login(@RequestBody LoginRequest request) {
-        OAuthResult result = oAuthService.authenticate(tokenOf(request.accessToken()));
+        OAuthResult result = oAuthService.authenticate(tokenOf(request.token()));
 
         return LoginResponse.from(result);
     }

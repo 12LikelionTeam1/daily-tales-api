@@ -28,12 +28,15 @@ spring:
         jdbc:
           time_zone: Asia/Seoul
 
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+
 oauth2:
   client:
-    kakao:
-      resource-uri: https://kapi.kakao.com/v2/user/me
     google:
-      resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
+      client-id: ${GOOGLE_CLIENT_ID}
+      issuer: https://accounts.google.com
 
 token:
   secret: ${TOKEN_SECRET}
